@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ComponentsModule } from './components/components.module';
 
+
 // Rutas
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,8 +13,11 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { GotyComponent } from './pages/goty/goty.component';
 
 // import { NavbarComponent } from './components/navbar/navbar.component';
-import {  HttpClientModule} from '@angular/common/http';
 
+import {  HttpClientModule} from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import {  HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
